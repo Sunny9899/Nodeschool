@@ -7,12 +7,14 @@ module.exports = function (param1,param2,callback){
      if(err){
          return callback(err);
      }
+     const filteredFiles=[];
           files.map((file)=>{
             if(path.extname(file)==="."+`${param2}`){
+                filteredFiles.push(file);
                 return file;
             }
           })
-          return callback(null,files);
+          return callback(null,filteredFiles);
  })
 
 }
